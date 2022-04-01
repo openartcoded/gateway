@@ -1,0 +1,10 @@
+server:
+  port: ${SERVER_PORT:9090}
+  error:
+    whitelabel:
+      enabled: false
+
+spring:
+  config:
+    import:
+      - ${GATEWAY_CONFIG_FILE:classpath:gateway.yml}

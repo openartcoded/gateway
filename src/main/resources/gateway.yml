@@ -1,0 +1,20 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: yahoo_finance_chart
+          uri: ${YAHOO_FINANCE_CHART_URL:https://query1.finance.yahoo.com}
+          predicates:
+            - Path=/proxy/yahoo-finance/chart/**
+          filters:
+            - RewritePath=/proxy/yahoo-finance/chart/(?<segment>.*), /v8/finance/chart/$\{segment}
+        - id: yahoo_finance_search
+          uri: ${YAHOO_FINANCE_CHART_URL:https://query1.finance.yahoo.com}
+          predicates:
+            - Path=/proxy/yahoo-finance/search/**
+          filters:
+            - RewritePath=/proxy/yahoo-finance/search(?<segment>.*), /v1/finance/search$\{segment}
+        - id: api
+          uri: ${BACKEND_URL:http://localhost:8088}
+          predicates:
+            - Path=/api/**
