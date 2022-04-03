@@ -19,7 +19,7 @@
 	</properties>
 	<scm>
 		<connection>
-			scm:git:git@github.com:bittichbe/artcoded-api-gateway.git
+			scm:git:git@github.com:openartcoded/gateway.git
 		</connection>
 		<tag>2022.0.4.</tag>
 	</scm>
