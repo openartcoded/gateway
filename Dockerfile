@@ -12,7 +12,7 @@ COPY ./src ./src
 RUN mvn package -DskipTests
 
 FROM ibm-semeru-runtimes:open-17-jre
-RUN mkdir /opt/shareclasses
+
 
 WORKDIR /app
 
