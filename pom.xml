@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>tech.artcoded</groupId>
 	<artifactId>api-gateway</artifactId>
-	<version>2022.0.4-SNAPSHOT</version>
+	<version>2022.1.4-SNAPSHOT</version>
 	<name>api-gateway</name>
 	<description>Api Gateway for artcoded</description>
 	<properties>
