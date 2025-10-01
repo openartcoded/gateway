@@ -1,4 +1,4 @@
-FROM maven:3-eclipse-temurin-24 AS builder
+FROM maven:3-eclipse-temurin-25 AS builder
 LABEL maintainer="contact@bittich.be"
 
 WORKDIR /app
@@ -11,11 +11,11 @@ COPY ./src ./src
 
 RUN mvn package -DskipTests
 
-FROM ibm-semeru-runtimes:open-24-jre
+FROM ibm-semeru-runtimes:open-25-jre-jammy
 
 
 WORKDIR /app
 
 COPY --from=builder /app/target/app.jar ./app.jar
 
-ENTRYPOINT [ "java",  "-Xtune:virtualized", "-Xshareclasses:cacheDir=/opt/shareclasses",  "-jar","/app/app.jar"]
+ENTRYPOINT [ "java",  "-Xtune:virtualized","-XX:+UseCompactObjectHeaders", "-Xshareclasses:cacheDir=/opt/shareclasses",  "-jar","/app/app.jar"]
